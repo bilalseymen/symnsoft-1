@@ -1,0 +1,32 @@
+{% load static %}
+<header class="header">
+    <div class="overlay has-fade"></div>
+
+    <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+      <a href="/" class="header__logo">
+        <img src="{% static 'img/symnlogo.png' %}" alt="symnsoft" width="160px" height="40"/>
+      </a>
+
+      <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="header__links hide-for-mobile">
+        <a href="{% url 'index' %}">Home</a>
+        {% for singlepage in singlepage %}
+        <a href="{% url 'singlepage' slug=singlepage.slug %}">{{ singlepage.title }}</a>
+        {% endfor %}
+      </div>
+
+      <a href="#footer" class="button hide-for-mobile">Contact Us</a>
+    </nav>
+
+    <div class="header__menu has-fade">
+      <a href="{% url 'index' %}">Home</a>
+      {% for singlepage in singlepage %}
+      <a href="{% url 'singlepage' slug=singlepage.slug %}">{{ singlepage.title }}</a>
+      {% endfor %}
+    </div>
+  </header>
